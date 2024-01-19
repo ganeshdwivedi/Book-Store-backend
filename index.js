@@ -112,11 +112,12 @@ app.put('/api/books/update/:id', verifyToken, async function (req, res) {
         const ID = req.params.id;
         console.log(ID)
         const book = await Book.findById(ID);
-        const { title, price, thumbnail, description, type } = await req.body;
+        const { title, price,author, thumbnail, description, type } = await req.body;
         const updatebooks = await Book.findByIdAndUpdate(ID, {
             ...(!title ? {} : { title }),
             ...(!description ? {} : { description }),
             ...(!price ? {} : { price }),
+             ...(!author ? {} : { author }),
             ...(!thumbnail ? {} : { thumbnail }),
             ...(!type ? {} : { type }),
         });
