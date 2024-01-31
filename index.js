@@ -144,7 +144,7 @@ app.delete('/api/books/delete/:id', verifyToken, async function (req, res) {
 })
 
 
-app.post('/api/books/create', async (req, res) => {
+app.post('/api/books/create',verifyToken, async (req, res) => {
 
     console.log(req.body)
     try {
